@@ -112,5 +112,3 @@ void searchGoodName4Admin(const char* name, const char* id) {
         print_divide
     }
                     }
-
- 
