@@ -7,6 +7,27 @@
 #include "good/good.h"
 #include "order/order.h"
 
+
+// 一个棒棒的宏
+#define make_interface(T, YPE)          \
+    void T##YPE##_Interface()           \
+    {                                   \
+        successMessage();               \
+        int op = menu(T##YPE);          \
+        while (op != optionNum[T##YPE]) \
+        {                               \
+            loadingMessage();           \
+            handler[op - 1]();          \
+            op = menu(T##YPE);          \
+        }                               \
+        loadingMessage();               \
+        successMessage();               \
+    }
+
+typedef void (*HANDLER)(void);
+
+void inv();
+
 /* An interface gets user input with corresponding menu and handles it. */
 
 /**
